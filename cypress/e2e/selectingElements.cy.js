@@ -25,4 +25,9 @@ describe('selects elemets', ()=>{
         cy.visit('http://127.0.0.1:5500/login.html');
         cy.get('[type="password"]')
     })
+
+    it('selects by data-cy attribute', ()=>{
+        cy.visit('http://127.0.0.1:5500/')
+        cy.get('[data-cy="constructions-heading"]')
+    })
 })

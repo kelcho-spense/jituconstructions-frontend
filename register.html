@@ -17,7 +17,7 @@
             <h1 class="text-blue-400">Already have an account?</h1>
 
 
-            <a href="login.html" class="text-[20px] px-4 py-2 bg-amber-600 shadow-2xl" >LOGIN</a>
+            <a href="login.html" data-cy="login" class="text-[20px] px-4 py-2 bg-amber-600 shadow-2xl" >LOGIN</a>
         </div>
         <div>
             <div class="w-full max-w-xs">
@@ -53,9 +53,14 @@
                     <button class="btnregister bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                       Sign Up
                     </button>
-                    <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+
+                    <select name="" id="select-options">
+                      <option value="submit">Register</option>
+                      <option value="close">Exit</option>
+                    </select>
+                    <!-- <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
                       Forgot Password?
-                    </a>
+                    </a> -->
                   </div>
                 </form>
                 

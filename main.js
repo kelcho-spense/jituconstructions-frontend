@@ -77,7 +77,7 @@ if(window.location.pathname == '/login.html'){
     const login_form = document.getElementById('login-form');
     const txtloginemail = document.querySelector('.txtloginemail')
     const txtloginpwd = document.querySelector('.txtloginpwd')
-
+    const btnlogin = document.querySelector('.btnlogin')
     const loginMsgs = document.querySelector('.loginErrors')
     let token = ''
     
@@ -87,6 +87,7 @@ if(window.location.pathname == '/login.html'){
         const user = txtloginemail.value !== '' && txtloginpwd.value !== ''
 
         if(user){
+            btnlogin.value = "Loading"
             const promise = new Promise((resolve, reject)=>{
                 fetch('http://localhost:4500/employee/login', {
                     headers:{
@@ -99,12 +100,20 @@ if(window.location.pathname == '/login.html'){
                         "password": txtloginpwd.value
                     })
                 }).then(res => (res.json())).then(data=>{
-                    loginMsgs.innerHTML = data?.message 
+                    // loginMsgs.innerHTML = data?.message 
+                    const message = document.createElement('h6')
+                    message.style.color = 'green'
+                    message.className='successmsg'
+                    message.textContent = data?.message
+
+                    loginMsgs.appendChild(message)
+
                     token = data?.token
 
                     localStorage.setItem('token', token)
                     setTimeout(() => {
                         loginMsgs.innerHTML = ''
+                        btnlogin.value = "Sign In"
                     }, 3000);
                 })
             })
