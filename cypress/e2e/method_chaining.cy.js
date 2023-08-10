@@ -1,8 +1,12 @@
 /// <reference types="Cypress"/>
 
 describe('Uses method chaining', ()=>{
+
+    beforeEach(()=>{
+        cy.visit('login.html')
+    })
+
     it('uses aliases and variables', ()=>{
-        cy.visit('http://127.0.0.1:5500/login.html')
 
         cy.get('.txtloginemail').type('john.wachira@yopmail.com')
         cy.get('.txtloginpwd').type('12345678')
@@ -17,7 +21,6 @@ describe('Uses method chaining', ()=>{
     })
 
     it('uses then function', ()=>{
-        cy.visit('http://127.0.0.1:5500/login.html')
         cy.get('.txtloginemail').type('john.wachira@yopmail.com')
         cy.get('.txtloginpwd').type('12345678')
 

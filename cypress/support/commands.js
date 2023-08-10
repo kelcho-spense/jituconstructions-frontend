@@ -23,3 +23,18 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('Login', ()=>{
+    cy.get('.txtloginemail').type('john.wachira@yopmail.com')
+    cy.get('.txtloginpwd').type('12345678')
+
+    cy.get('.btnlogin').click()
+})
+
+Cypress.Commands.addQuery('getElementByDataCyAttr', (id)=>{
+    let getFunction = cy.now('get', `[data-cy="${id}"]`)
+
+    return ()=>{
+        return getFunction()
+    }
+})
